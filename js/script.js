@@ -47,3 +47,25 @@ obtenerRegistros();
 const modal = document.getElementById("mdAgregar") //cuadro de dialogo
 const btnAgregar = document.getElementById("btnAgregar") //boton flotante 
 const btnCerrar = document.getElementById("btnCerrarModal") //boton de cerar formulario
+
+btnAgregar.addEventListener("click" , ()=>{
+    modal.showModal(); //abre el modal cuando se hace click 
+}); 
+
+btnCerrar.addEventListener("click", ()=> {
+    modal.close(); //cierra el modal al hacer click 
+});
+
+
+//agregar un nuevo integrante desde el fromulario 
+document.getElementById("frmAgregar").addEventListener("submit", async e => { // "e" es el elemento submit
+    e.preventDefault(); //evita que los datos se envien por defecto 
+
+    //capturar los valores del fromulario 
+    const Nombre = document.getElementById("txtNombre").value.trim();
+
+    const Apellido = document.getElementById("txtApellido").value.trim();
+    
+    const Correo = document.getElementById("txtCorreo").value.trim();
+
+}); 
