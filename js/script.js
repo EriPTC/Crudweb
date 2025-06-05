@@ -39,3 +39,11 @@ function mostrarRegistro(datos) {
 }
 
 obtenerRegistros();
+
+
+
+
+//proceso para agregar registros 
+const modal = document.getElementById("mdAgregar") //cuadro de dialogo
+const btnAgregar = document.getElementById("btnAgregar") //boton flotante 
+const btnCerrar = document.getElementById("btnCerrarModal") //boton de cerar formulario
