@@ -1,0 +1,26 @@
+.add-button {
+    position: fixed; /* el boton queda flotante sobre el contenido*/
+    bottom: 30px; /*separacion del borde de abajo*/
+    right: 40px; /*eparacion del borde de la derecha*/
+    background-color: darkcyan;
+    color: white; /*color del icono*/
+    border-radius: 50%;
+    border: none;
+    width: 70px; /* ocupamos estos dos campos para que el icono no se ve aplastado */
+    height: 70px; /*ocupamos estos dos para igualar las medidas y se vean bien */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* sombra del boton*/
+    display: flex; /*activar flexbox*/
+    justify-content: center; /*alineacion horizontal*/
+    align-items: center; /*aliniacion vertical*/
+    z-index: 1001; /*para que el boton siempre quede "encima" del resto del contenido*/
+    transition: transform 0.4s; /*tiempo de transicion*/
+}
+
+.add-button:hover {
+    transform: scale(1.2);
+}
+
+.tabla-scroll {
+    overflow-x: auto; /*colocar scroll horizontal en la tabla*/
+}
+

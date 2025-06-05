@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expo Amor Azul System</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -28,22 +29,35 @@
     <main class="Container">
         <h2>Integrantes del Equipo</h2>
 
-        <table id="tabla" class="overflow-auto striped">
-            <thead> <!--tr es table row - fila-->
-                <tr>
-                    <th>ID</th> <!--Encabezado de la tabla-->
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo Electronico</th>
-                    <th>Acciones</th> <!--bontones para editar y eliminar-->
-                </tr>
-            </thead>
+        <div class="tabla-scroll">
+            <table id="tabla" class="overflow-auto striped">
+                <thead> <!--tr es table row - fila-->
+                    <tr>
+                        <th>ID</th> <!--Encabezado de la tabla-->
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electronico</th>
+                        <th>Acciones</th> <!--bontones para editar y eliminar-->
+                    </tr>
+                </thead>
 
-            <tbody> <!--aqui van los elementos de la tabla-->
+                <tbody> <!--aqui van los elementos de la tabla-->
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </main>
+
+    <button class="add-button" id="btnAgregar" title="Agregar Integrante">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-user-round-plus-icon lucide-user-round-plus">
+            <path d="M2 21a8 8 0 0 1 13.292-6" />
+            <circle cx="10" cy="8" r="5" />
+            <path d="M19 16v6" />
+            <path d="M22 19h-6" />
+        </svg>
+    </button>
 
     <script src="js/script.js"></script>
 </body>
