@@ -68,4 +68,34 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => { //
     
     const Correo = document.getElementById("txtCorreo").value.trim();
 
+    //validacion basica 
+    if (!Nombre || !Apellido || !Correo){
+        alert("Complete todos los campos")
+        return; //Evita que el codigo se siga ejecutando 
+    }
+
+    //Llamar a la API para enviar los datos 
+    const respuesta = await fetch(API_URL, {
+        method: "POST", 
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({Nombre,Apellido,Correo})
+    });
+
+    if(respuesta.ok){
+        alert("El registro fue agregado correctamente");
+        
+        //Limpiar formulario
+        document.getElementById("frmAgregar").reset();
+        
+        //Cerrar el formulario
+        modal.close();
+
+        //recargar tabla
+        obtenerRegistros();
+    }
+    else
+    {
+        ("ERROR!: No fue posible agregar el registro")
+    }
+
 }); 
