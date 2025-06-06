@@ -21,16 +21,16 @@ function mostrarRegistro(datos) {
     //para inyectar codigo HTML usamos innerHTML
     tabla.innerHTML = "";
     //por cada persona en el json se va a hacer... (lo que esta adentro de las llaves)
-    datos.forEach(perosna => {
+    datos.forEach(Personas => {
         tabla.innerHTML += `
             <tr>
-                <td> ${perosna.id}</td>
-                <td> ${perosna.Nombre}</td>
-                <td> ${perosna.Apellido}</td>
-                <td> ${perosna.Correo}</td>
+                <td> ${Personas.id}</td>
+                <td> ${Personas.Nombre}</td>
+                <td> ${Personas.Apellido}</td>
+                <td> ${Personas.Correo}</td>
                 <td> 
                 <button>Editar</button>
-                <button>Eliminar</button>
+                <button onclick="EliminarPersona(${Personas.id})">Eliminar</button>
                 </td>
             </tr>
         `;
@@ -99,3 +99,23 @@ document.getElementById("frmAgregar").addEventListener("submit", async e => { //
     }
 
 }); 
+
+
+
+
+//funcion para borrra registros 
+async function EliminarPersona(id) {
+    const confirmacion = confirm("¿Desea eliminar el registo ?")
+
+    //validar si el usuario eligio "aceptar"
+    if(confirmacion){
+        await fetch(`${API_URL}/${id}`, {
+            method: "DELETE"
+        }); //llamada al endpoint
+        
+        //recargar tabla para actualizar la vista 
+        obtenerRegistros();
+    }
+}
+
+
