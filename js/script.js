@@ -140,6 +140,35 @@ async function EliminarPersona(id) {
 
         //El modal se abre despues de agregar los valores a los input 
         modalEditar.showModal();
-
-
     }
+
+    document.getElementById("frmEditar").addEventListener("submit", async e =>{
+        e.preventDefault(); //Evita que el formulario se envie de golpe
+        const id = document.getElementById("txtIdEditar").value;
+        const Nombre = document.getElementById("txtNombreEditar").value.trim();
+        const Apellido = document.getElementById("txtApellidoEditar").value.trim();
+        const Correo = document.getElementById("txtCorreoEditar").value.trim();
+
+        if(!id || !Nombre || !Apellido || !Correo){
+            alert("Complete todos los campos")
+            return; //Evita que el codigo se siga ejecutando 
+        }
+
+        //llamar a la API
+        const respuesta = await fetch(`${API_URL}/${id}`, {
+            method: "PUT",
+            headers: {"Content-Type" : "application/json"},
+            body: JSON.stringify({Correo, Nombre, Apellido})
+        });
+
+        if(respuesta.ok){
+            alert("El usuario se actualizo correctamente")
+            modalEditar.close();
+            obtenerRegistros();
+        }
+        else
+        {
+            alert("ERROR al actulizar")
+        }
+
+    } );
