@@ -49,7 +49,7 @@
     </main>
 
     <!--popup para agregar registros-->
-    <dialog id="mdAgregar" open>
+    <dialog id="mdAgregar">
         <article>
             <header>
                 <a href="#" class="close" id="btnCerrarModal"></a>
@@ -59,6 +59,24 @@
                 <input type="text" id="txtNombre" placeholder="Nombre" required>
                 <input type="text" id="txtApellido" placeholder="Apellido" required>
                 <input type="email" id="txtCorreo" placeholder="Correo Electronico" required>
+                <button type="submit" class="contrast"> guardar registro</button>
+            </form>
+        </article>
+    </dialog>
+
+
+    <!--popup para actualizar-->
+    <dialog id="mdEditar">
+        <article>
+            <header>
+                <a href="#" class="close" id="btnCerrarEditar"></a>
+                <h3>Actualizar Integrante</h3>
+            </header>
+            <form id="frmEditar">
+                <input type="hidden" id="txtIdEditar"> <!--Guarda el Id de manera oculta-->
+                <input type="text" id="txtNombreEditar" placeholder="Nombre" required>
+                <input type="text" id="txtApellidoEditar" placeholder="Apellido" required>
+                <input type="email" id="txtCorreoEditar" placeholder="Correo Electronico" required>
                 <button type="submit" class="contrast"> guardar registro</button>
             </form>
         </article>

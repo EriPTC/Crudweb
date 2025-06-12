@@ -29,7 +29,7 @@ function mostrarRegistro(datos) {
                 <td> ${Personas.Apellido}</td>
                 <td> ${Personas.Correo}</td>
                 <td> 
-                <button>Editar</button>
+                <button onclick="abrirModalEditar ('${Personas.id}', '${Personas.Nombre}', '${Personas.Apellido}','${Personas.Correo}')">Editar</button>
                 <button onclick="EliminarPersona(${Personas.id})">Eliminar</button>
                 </td>
             </tr>
@@ -119,3 +119,27 @@ async function EliminarPersona(id) {
 }
 
 
+
+
+
+
+//ACTUALIZAR 
+    const modalEditar = document.getElementById("mdEditar");
+    const btnCerrarEditar = document.getElementById("btnCerrarEditar");
+
+    btnCerrarEditar.addEventListener("click", ()=> {
+        modalEditar.close(); //cierra el modal al hacer click 
+    });
+
+    function abrirModalEditar (id, Nombre, Apellido, Correo) {
+        //Agregar valores a los input antes de abrir el modal
+        document.getElementById("txtIdEditar").value = id;
+        document.getElementById("txtNombreEditar").value = Nombre;
+        document.getElementById("txtApellidoEditar").value = Apellido;
+        document.getElementById("txtCorreoEditar").value = Correo;
+
+        //El modal se abre despues de agregar los valores a los input 
+        modalEditar.showModal();
+
+
+    }
